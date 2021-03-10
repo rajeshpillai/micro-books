@@ -16,7 +16,7 @@ const Home = (props) => {
             <div key={book.id} className="book">
               <h3>{book.title}</h3>
               <div>{book.desc}</div>
-              <NavLink to={`/book/${book.id}`}>View Details</NavLink>
+              <NavLink to={`/book/${book.id}/preview`}>View Details</NavLink>
             </div>
           )
         })

@@ -28,10 +28,10 @@ function App() {
             <Route path="/" exact >
               <Home/>
             </Route>
-            <Route path="/book-edit" >
+            <Route path="/book/editor/:id" >
               <BookEditor/>
             </Route>
-            <Route path="/book/:id" >
+            <Route path="/book/:id/preview" >
               <BookPreview />
             </Route>
           </Switch>

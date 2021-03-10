@@ -26,10 +26,26 @@ export const RootProvider = ({children}) => {
     return book;
   }
 
+  const saveBook = (id, updatedBook) => {
+    alert(JSON.stringify(updatedBook));
+    const updatedState = state.books.map(book => {
+      if (book.id == id) {
+        return updatedBook;
+      }
+      return book;
+    });
+
+    setState(prevState => ({
+      ...prevState, 
+      books: [...updatedState]
+    }))
+  }
+
   const getApi = () => {
     return {
       state, 
       setState,
+      saveBook,
       findBook
     }
   }

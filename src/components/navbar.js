@@ -3,7 +3,7 @@ const NavBar = (props) => {
   return (
     <ul className="top-menu">
       <li><NavLink to="/">Home</NavLink></li>
-      <li><NavLink to="/book-edit">Book Editor</NavLink></li>
+      <li><NavLink to="/book/editor">Book Editor</NavLink></li>
     </ul>
   )
 }

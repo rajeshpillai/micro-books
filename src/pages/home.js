@@ -1,13 +1,17 @@
+import {useContext} from 'react';
+import {RootContext} from '../context/root-context';
+
 import {
   NavLink
 } from 'react-router-dom';
 
-const Home = ({books}) => {
+const Home = (props) => {
+  const [state,setState,findBook] = useContext(RootContext);
 
   return (
     <div className="books">
       {
-        books.map(book => {
+        state.books.map(book => {
           return (
             <div key={book.id} className="book">
               <h3>{book.title}</h3>

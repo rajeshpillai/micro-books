@@ -4,7 +4,7 @@ import { RootContext } from '../context/root-context';
 export default function BookPreview({loadBook}) {
   let {id} = useParams();
   const [book, setBook] = useState(undefined);
-  const [state,setState,findBook] = useContext(RootContext);
+  const {findBook} = useContext(RootContext);
 
   useEffect(() => {
     setBook(findBook(id))

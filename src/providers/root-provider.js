@@ -26,8 +26,17 @@ export const RootProvider = ({children}) => {
     return book;
   }
 
+  const getApi = () => {
+    return {
+      state, 
+      setState,
+      findBook
+    }
+  }
+
+
   return (
-    <RootContext.Provider value={[state, setState, findBook]}>
+    <RootContext.Provider value={getApi()}>
       {children}
     </RootContext.Provider>
   )

@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 
 const Home = (props) => {
-  const [state,setState,findBook] = useContext(RootContext);
+  const {state} = useContext(RootContext);
 
   return (
     <div className="books">

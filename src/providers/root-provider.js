@@ -34,6 +34,17 @@ function loadData() {
   return data;
 }
 
+function loadSections(chapterId, count) {
+  const sections = [];
+  for(let i = 1; i <= count; i++) {
+    sections.push({
+      chapterId: chapterId,
+      content: `Section ${i} goes here...`
+    })
+  }
+  return sections;
+}
+
 function loadChapters(books) {
   const chapters = [];
 
@@ -42,7 +53,8 @@ function loadChapters(books) {
       chapters.push({
         id: j,
         bookId: books[i].id,
-        title: `Chapter ${j}`
+        title: `Chapter ${j}`,
+        sections: loadSections(j, 5)
       });
     }
   }
@@ -86,13 +98,22 @@ export const RootProvider = ({children}) => {
     return result;
   }
 
+  const getChapter = (bookId, chapterId) => {
+    console.log(`Getting chapter ${chapterId} for book ${bookId}`);
+    const result = state.chapters.find(chapter => chapter.bookId == bookId && chapter.id == chapterId);
+    console.log("chapter: ", result, bookId, chapterId);
+    return result;
+  }
+
+
   const getApi = () => {
     return {
       state, 
       setState,
       saveBook,
       findBook,
-      getChapters
+      getChapters,
+      getChapter
     }
   }
 

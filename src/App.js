@@ -9,11 +9,12 @@ import {
 } from 'react-router-dom';
 
 import './app.css';
+import {RootProvider} from'./providers/root-provider';
 import BookEditor from './pages/book-editor';
 import Home from './pages/home';
 import NavBar from './components/navbar';
 import BookPreview from './pages/book-preview';
-import {RootProvider} from'./providers/root-provider';
+import ChapterManage from './pages/chapter-manage';
 
 function App() {
 
@@ -30,6 +31,9 @@ function App() {
             </Route>
             <Route path="/book/editor/:id" >
               <BookEditor/>
+            </Route>
+            <Route path="/books/:bookId/chapters/:chapterId" >
+              <ChapterManage />
             </Route>
             <Route path="/book/:id/preview" >
               <BookPreview />

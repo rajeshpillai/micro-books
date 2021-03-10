@@ -1,6 +1,6 @@
 import {useState, useEffect, useContext} from 'react';
 import { RootContext } from '../context/root-context';
-import Chapter from './chapter';
+import ChapterPreview from './chapter-preview';
 
 export default function Chapters({book}) {
   console.log("Loading book...", book);
@@ -17,7 +17,7 @@ export default function Chapters({book}) {
       {chapters && 
         chapters.map(chapter => {
           return (
-            <Chapter book={book} chapter = {chapter} />
+            <ChapterPreview key={chapter.id} book={book} chapter = {chapter} />
           )
         })
       }

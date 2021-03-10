@@ -27,18 +27,22 @@ const BookEditor = (props) => {
   }
 
   return (
-    <div className="form">
-      <h2>New/Edit Book</h2>
-      <h3>{book?.title}</h3>
-      <textarea name="desc" placeholder="book description" rows="10" cols="100" 
-        value={book?.desc}
-        onChange = {handleChange}
-      />
-      <button onClick={handleSaveBook}>SAVE BOOK</button>
+    <>
+      {!book && <h3>Loading...</h3>}
+      { book && <div className="form">
+          <h2>New/Edit Book</h2>
+          <h3>{book.title}</h3>
+          <textarea name="desc" placeholder="book description" rows="10" cols="100" 
+            value={book.desc}
+            onChange = {handleChange}
+          />
+          <button onClick={handleSaveBook}>SAVE BOOK</button>
 
-      <button>Add Chapter</button>
-      <Chapters bookId={book?.id}/>
-    </div>
+          <button>Add Chapter</button>
+          <Chapters book={book}/>
+        </div>
+      }
+    </>
   )
 }
 

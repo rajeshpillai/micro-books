@@ -80,7 +80,10 @@ export const RootProvider = ({children}) => {
   }
 
   const getChapters = (bookId) => {
-    return state.chapters.filter(chapter => chapter.bookId == bookId);
+    console.log(`Getting chapters for book ${bookId}`);
+    const result = state.chapters.filter(chapter => chapter.bookId == bookId);
+    console.log("chapters: ", result, bookId);
+    return result;
   }
 
   const getApi = () => {

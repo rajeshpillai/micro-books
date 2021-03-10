@@ -1,14 +1,10 @@
-export default function Chapter({chapter}) {
+import {NavLink} from 'react-router-dom';
 
-  return (
-    <>
-      {!chapter && <h2>Loading....</h2>}
-      { chapter && 
-        <div className="book">
-          <h3>{chapter.title}</h3>
-          <button>Add Section</button>
-        </div>
-      }
-    </>
+export default function Chapter({book, chapter}) {
+return (
+      <div className="book">
+        <h3>{chapter.title}</h3>
+        <NavLink to={`/books/${book.id}/`}>Manage Chapters</NavLink>
+      </div>
   )
 }

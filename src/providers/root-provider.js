@@ -12,7 +12,7 @@ import {RootContext} from '../context/root-context';
         id  
         title  
         sections [
-          { id content}
+          { id content type={text, image}}
         ]
       } 
     ]
@@ -39,7 +39,9 @@ function loadSections(chapterId, count) {
   for(let i = 1; i <= count; i++) {
     sections.push({
       chapterId: chapterId,
-      content: `Section ${i} goes here...`
+      content: `Section ${i} goes here...`,
+      type: "text",
+      order: i,
     })
   }
   return sections;

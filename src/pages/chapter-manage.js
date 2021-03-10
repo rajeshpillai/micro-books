@@ -26,7 +26,7 @@ export default function ChapterManage(props) {
         </div>
         <div className="sections">
           {
-            chapter.sections.map(section => {
+            chapter.sections.sort((a,b) => a.order - b.order).map(section => {
               return (
                 <div key={section.id} className="section">
                     <div>{section.content}</div>

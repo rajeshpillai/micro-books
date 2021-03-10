@@ -1,7 +1,7 @@
 import {useState, useEffect, useContext} from 'react';
 import {useParams} from 'react-router-dom';
 import { RootContext } from '../context/root-context';
-
+import Chapters from './chapters';
 const BookEditor = (props) => {
   let {id} = useParams();
 
@@ -27,7 +27,7 @@ const BookEditor = (props) => {
   }
 
   return (
-    <div>
+    <div className="form">
       <h2>New/Edit Book</h2>
       <h3>{book?.title}</h3>
       <textarea name="desc" placeholder="book description" rows="10" cols="100" 
@@ -35,6 +35,9 @@ const BookEditor = (props) => {
         onChange = {handleChange}
       />
       <button onClick={handleSaveBook}>SAVE BOOK</button>
+
+      <button>Add Chapter</button>
+      <Chapters bookId={book?.id}/>
     </div>
   )
 }

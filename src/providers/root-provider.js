@@ -1,6 +1,25 @@
 import React, {useState} from 'react';
 import {RootContext} from '../context/root-context';
 
+
+/*
+  Book {
+    title
+    desc
+
+    chapters [
+      {
+        id  
+        title  
+        sections [
+          { id content}
+        ]
+      } 
+    ]
+  }
+
+*/
+
 function loadData() {
   const data = [];
 
@@ -15,9 +34,28 @@ function loadData() {
   return data;
 }
 
+function loadChapters(books) {
+  const chapters = [];
+
+  for (let i = 0; i < books.length; i++) {
+    for(let j = 1; j < 5; j++) {
+      chapters.push({
+        id: j,
+        bookId: books[i].id,
+        title: `Chapter ${j}`
+      });
+    }
+  }
+
+  return chapters;
+}
+
 export const RootProvider = ({children}) => {
+  const books = loadData();
+
   const [state, setState] = useState({
-    books: loadData()
+    books: books,
+    chapters: loadChapters(books)
   });
 
   const findBook = (id) => {
@@ -41,12 +79,17 @@ export const RootProvider = ({children}) => {
     }))
   }
 
+  const getChapters = (bookId) => {
+    return state.chapters.filter(chapter => chapter.bookId == bookId);
+  }
+
   const getApi = () => {
     return {
       state, 
       setState,
       saveBook,
-      findBook
+      findBook,
+      getChapters
     }
   }
 

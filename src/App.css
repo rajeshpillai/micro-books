@@ -29,3 +29,14 @@
 .top-menu li {
   padding-right: 10px;
 }
+
+
+/* form */
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  width: 100px;
+}
